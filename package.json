@@ -8,16 +8,13 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DCodersClub/DCodersTheorem.git"
-  },
+  "repository": "git+https://github.com/DCodersClub/DCodersTheorem.git",
   "keywords": [
     "DCoders",
     "Quiz",
     "Event"
   ],
-  "author": "Shashank,Rohan",
+  "author": "Harsh",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/DCodersClub/DCodersTheorem/issues"

@@ -1,17 +1,20 @@
-<div class="nav-container">
-  <h3>&lt Konst /></h3>
-  <ul class="nav-list">
+<div class="navbar navbar-dark">
+  <a class="navbar__item-wrapper" href="/">
+    <h3 class="navbar__heading_text" >&lt Konst /></h3>
+  </a>
+  <ul class="navbar__item-wrapper">
 
-    <li><a href="/" class='home'>Home</a></li>
-    <li>Rules</li>
-    <li>About</li>
-    <li class='annoucements' ><a href="/announcement" >Annoucements</a></li>
-    <li class='leaderboard'><a href="/leaderboard">Leaderboard</a></li>
+    <li class='navbar__item' ><a class="navbar__item_text" href="/" >Home</a></li>
+    <li class="navbar__item"><a class="navbar__item_text" href="/rules" >Rules</a></li>
+    <li class="navbar__item"><a class="navbar__item_text" href="/about">About</a></li>
+    <li class='navbar__item' ><a class="navbar__item_text" href="/announcement" >Annoucements</a></li>
+    <li class='navbar__item'><a class="navbar__item_text" href="/leaderboard">Leaderboard</a></li>
+
     <%if (typeof user =='undefined'){ %>
-    <li class='login'><a href="/user/login">Login</a></li>
+    <li class='navbar__item'><a class="navbar__item_text" href="/user/login">Login</a></li>
     <% } else{ %>
-    <li><a href="/user/logout">Logout</a></li>
-    <li class='profile'><a href="/user/profile">[<%=user.name%>]</a></li>
+    <li class="navbar__item" ><a class="navbar__item_text" href="/user/logout">Logout</a></li>
+    <li class='navbar__item'><a class="navbar__item_text" href="/user/profile">[<%=user.name%>]</a></li>
     <% } %>
   </ul>
 </div>

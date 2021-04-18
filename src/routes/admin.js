@@ -1,5 +1,5 @@
 const User = require("../models/user");
-const Annoucement=require("../models/annoucements");
+const Annoucement = require("../models/annoucements");
 const Question = require("../models/question");
 const router = require("express").Router();
 const mailer = require("../services/mailer");
@@ -37,7 +37,8 @@ router.get("/login", async (req, res) => {
 
 router.post("/login", async (req, res, next) => {
   let { username, password } = req.body;
-  if ((username = "admin" && password == "password")) {
+  console.log(username);
+    if ((username = "admin" && password == "password")) {
     res.cookie("authed", "true");
     res.redirect("admin/dashboard");
   }
@@ -73,26 +74,25 @@ router.get("/all", async (req, res) => {
   res.json(users);
 });
 
+router.post("/announce", async (req, res) => {
+  try {
+    const { subject, message } = req.body;
 
-router.post("/announce",async (req,res)=>{
-  try{
-    const {subject,message}=req.body;
-
-    const newAnnouce=Annoucement({
-      subject:subject,
-      content:message,
-    })
+    const newAnnouce = Annoucement({
+      subject: subject,
+      content: message,
+    });
     await newAnnouce.save();
-    let users=await User.find({});
-    mailList=[]
-    for(user of users){
+    let users = await User.find({});
+    mailList = [];
+    for (user of users) {
       mailList.push(user.email);
     }
-    mailer.sendMail(mailList, subject,message);
-    res.redirect("/admin")
-  }catch(err){
+    mailer.sendMail(mailList, subject, message);
+    res.redirect("/admin");
+  } catch (err) {
     console.log(err);
   }
-})
+});
 
 module.exports = router;
