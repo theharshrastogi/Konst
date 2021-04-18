@@ -1,7 +1,7 @@
 html {
   font: {
     family: "Nunito", "Poppins", sans-serif;
-    size: 1rem;
+    size: 16px;
     weight: normal;
   }
   scroll-behavior: smooth;
@@ -23,4 +23,14 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
